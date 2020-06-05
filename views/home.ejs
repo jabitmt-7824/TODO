@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>TODO List</title>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="/css/home.css">
+</head>
+<body>
+    <main>
+    	   <!--     Application Head        -->
+    	<h1 class="borders">TODO App</h1>
+
+    	    <!--     input form section        -->
+    	<form>
+    		<div id="desc" class="form-parts borders">
+    		<label for="desc">description</label>
+    		<input type="text" name="desc" id="desc" placeholder="What do you need to do?">
+          	</div>
+          	<div class="horizonatal-align" id="form-parts-2">
+          		<div class="form-parts borders">
+          			<label for="category">category</label>
+    		        <select id="category" name="category">
+    		        	<option>personal</option>
+    		        	<option>college</option>
+    		        	<option>work</option>
+    		        	<option>cleaning</option>
+    		        	<option>other</option>
+    		        </select>
+          		</div>
+          		<div class="form-parts borders">
+          			<label for="due-date">due date</label>
+          			<input type="date" name="due-date" id="due-date">
+          		</div>	
+          	</div>
+          	<div class="form-parts borders">
+                 <div id="button-container" class="horizonatal-align">
+                 <button id="add-btn"><i class="fa fa-plus" aria-hidden="true"></i>add task</button>  
+                 <button id="del-btn"><i class="fa fa-trash" aria-hidden="true"></i>delete task</button> 
+                 </div>
+            </div>
+    	</form>
+
+    	    <!--     list Section        -->
+
+    	<div id="list-container">
+
+    		<ul>
+    			<li class="borders horizonatal-align">
+    				<input type="checkbox">
+    				<label class="horizonatal-align">
+    					<div class="item-desc">
+    					<div>annual report submission</div>
+    					<div class="item-date"><i class="fa fa-calendar" aria-hidden="true"></i> may 2, 2019</div>
+    				    </div>
+    					<div class="category-box">school</div>
+    				</label>
+    			</li>
+
+    			<li class="borders horizonatal-align">
+    				<input type="checkbox">
+    				<label class="horizonatal-align">
+    					<div class="item-desc">
+    					<div>annual report submission</div>
+    					<div class="item-date"><i class="fa fa-calendar" aria-hidden="true"></i> may 2, 2019</div>
+    				    </div>
+    					<div class="category-box">personal</div>
+    				</label>
+    			</li>
+
+    			<li class="borders horizonatal-align">
+    				<input type="checkbox">
+    				<label class="horizonatal-align">
+    					<div class="item-desc">
+    					<div>annual report submission</div>
+    					<div class="item-date"><i class="fa fa-calendar" aria-hidden="true"></i> may 2, 2019</div>
+    				    </div>
+    					<div class="category-box">cleaning</div>
+    				</label>
+    			</li>
+    		</ul>
+
+    	</div>
+    </main>
+</body>
+</html>

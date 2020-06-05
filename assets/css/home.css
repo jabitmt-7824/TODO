@@ -1,0 +1,188 @@
+body{
+	background-color: #6d6969;
+}
+
+main{
+	background-color: white;
+	width: 60%;
+	margin:0 20%;
+	color: #4c4a4a;
+}
+
+h1{
+	font-size: 2rem;
+	padding: 1rem;
+	text-align: center;
+}
+ 
+/* border lines */
+
+.borders{
+	border-bottom: 1px solid #d3cece;
+	border-right: 1px solid #d3cece;
+}
+
+/* form elements */
+
+.form-parts{
+	padding: 2px 0 4px 0.8rem;
+	margin-top: 0; 
+}
+
+.form-parts:hover{
+	background-color: #d3cece;
+}
+
+.form-parts:hover input{
+	background-color: #d3cece;
+	color: #4c4a4a;
+}
+
+label,input{
+	display: block;
+}
+
+
+label{
+	font-weight: 900;
+	text-transform: uppercase;
+}
+
+input{
+	border:0;
+	height: 1.4rem;
+	width: 40%;
+	padding: 7px 2px; 
+}
+
+/* horizontal alignment  or  flex with direction row */
+.horizonatal-align{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+}
+
+#form-parts-2 .form-parts{
+	width: 50%;
+}
+
+select{
+	border:0;
+	width: 90%;
+}
+
+.form-parts:hover select{
+	background-color: #d3cece;
+	color: #4c4a4a;
+}
+
+option{
+	color: #292727;
+	text-transform: capitalize;
+}
+
+input[type="date"]{
+		width: 40%;
+}
+
+#button-container{
+	justify-content: center;
+}
+
+button{
+	padding: 1rem;
+	text-transform: uppercase;
+	color: white;
+	border: 0;
+	margin: 1rem;
+}
+
+#add-btn{
+	background-color: #2d2c2c;
+}
+
+#del-btn{
+	background-color: #790404;
+}
+
+i{
+	padding-right: 7px; 
+}
+
+/* list elements */
+
+li{
+	margin-top: 0.7rem;
+}
+
+input[type="checkbox"]{
+	width:7%;
+	margin-left: 0;
+}
+
+input[type="checkbox"] + label{
+	width: 88%;
+}
+
+.item-desc{
+	width: 70%;
+}
+
+.item-desc div{
+	text-transform: capitalize;
+}
+
+.item-date{
+	color: #cecbcb;
+}
+
+.category-box{
+	width: 16%;
+	font-size: 0.8rem;
+	text-align: center;
+	background-color: violet;
+	margin: 0.7rem;
+	padding: 4px;
+}
+
+@media all and (max-width: 991px){
+	main{
+		width: 80%;
+		margin: 0 10%;
+	}
+
+	input{
+		width: 50%;
+	} 
+
+	.category-box{
+		width: 20%;
+	}
+}
+
+@media all and (max-width: 767px){
+
+	input{
+		width: 70%;
+	}
+
+	input[type="date"]{
+		width: 90%;
+	} 
+
+	.category-box{
+		width: 22%;
+	}
+}
+
+@media all and (max-width: 577px){
+
+	main{
+		width: 100%;
+		margin: 0;
+	}
+
+	.category-box{
+		width: 24%;
+	}
+}
