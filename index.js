@@ -1,6 +1,9 @@
 const express = require("express");
 const port = 1001;
 
+const db = require("./config/mongoose");
+const TodoList = require("./models/todoList");
+
 const app = express();
 
 app.use(express.static("./assets"));
