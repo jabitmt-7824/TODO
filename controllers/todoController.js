@@ -7,7 +7,7 @@ module.exports.home = function(req,res)
             console.log("error in getting data from database");
             return;
         }
-        return res.render("home",{taskList:tasks,req:req});
+        return res.render("home",{taskList:tasks});
     });
     
 }
@@ -22,7 +22,6 @@ module.exports.addItem = function(req,res)
             console.log("error in adding new task");
             return;
         }
-        req.toastr.success("new task successfully added");
-        return res.redirect("back",{req:req});
+        return res.redirect("back");
     });
 }

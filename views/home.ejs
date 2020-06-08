@@ -38,9 +38,6 @@
                  <button id="del-btn" formaction="/delete-task"><i class="fa fa-trash" aria-hidden="true"></i>delete task</button> 
                  </div>
 			</div>
-			<% if(req.toastr){ %>}
-			<div id="toast"><%= req.toastr.render() %></div>
-			<%}%>
     	</form>
 
     	    <!--     list Section        -->
@@ -48,13 +45,14 @@
     	<div id="list-container">
 
     		<ul>
-				<% for( let i of taskList ) { %>
+				<% mlist = [ "JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC" ];
+				for( let i of taskList ) { %>
     			<li class="borders horizonatal-align">
     				<input type="checkbox">
     				<label class="horizonatal-align">
     					<div class="item-desc">
     					<div><%= i.description %></div>
-						<div class="item-date"><i class="fa fa-calendar" aria-hidden="true"></i> <%= i.dueDate.getDate() +"-"+ i.dueDate.getMonth() +"-"+ i.dueDate.getFullYear() %></div>
+						<div class="item-date"><i class="fa fa-calendar" aria-hidden="true"></i> <%= mlist[i.dueDate.getMonth()] +" "+ i.dueDate.getDay() +", "+i.dueDate.getFullYear()%></div>
     				    </div>
 						<div class="category-box" <% let cat= i.category 
 						if(cat==="personal")
