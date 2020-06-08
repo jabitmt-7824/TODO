@@ -11,15 +11,15 @@
     	<h1 class="borders">TODO App</h1>
 
     	    <!--     input form section        -->
-    	<form>
+    	<form method="POST">
     		<div id="desc" class="form-parts borders">
     		<label for="desc">description</label>
-    		<input type="text" name="desc" id="desc" placeholder="What do you need to do?">
+    		<input type="text" name="desc" id="desc" placeholder="What do you need to do?" required>
           	</div>
           	<div class="horizonatal-align" id="form-parts-2">
           		<div class="form-parts borders">
           			<label for="category">category</label>
-    		        <select id="category" name="category">
+    		        <select id="category" name="category" required>
     		        	<option>personal</option>
     		        	<option>college</option>
     		        	<option>work</option>
@@ -28,16 +28,19 @@
     		        </select>
           		</div>
           		<div class="form-parts borders">
-          			<label for="due-date">due date</label>
-          			<input type="date" name="due-date" id="due-date">
+          			<label for="dueDate">due date</label>
+          			<input type="date" name="dueDate" id="dueDate" required>
           		</div>	
           	</div>
           	<div class="form-parts borders">
                  <div id="button-container" class="horizonatal-align">
-                 <button id="add-btn"><i class="fa fa-plus" aria-hidden="true"></i>add task</button>  
-                 <button id="del-btn"><i class="fa fa-trash" aria-hidden="true"></i>delete task</button> 
+                 <button id="add-btn" formaction="/add-task"><i class="fa fa-plus" aria-hidden="true"></i>add task</button>  
+                 <button id="del-btn" formaction="/delete-task"><i class="fa fa-trash" aria-hidden="true"></i>delete task</button> 
                  </div>
-            </div>
+			</div>
+			<% if(req.toastr){ %>}
+			<div id="toast"><%= req.toastr.render() %></div>
+			<%}%>
     	</form>
 
     	    <!--     list Section        -->
@@ -45,38 +48,32 @@
     	<div id="list-container">
 
     		<ul>
+				<% for( let i of taskList ) { %>
     			<li class="borders horizonatal-align">
     				<input type="checkbox">
     				<label class="horizonatal-align">
     					<div class="item-desc">
-    					<div>annual report submission</div>
-    					<div class="item-date"><i class="fa fa-calendar" aria-hidden="true"></i> may 2, 2019</div>
+    					<div><%= i.description %></div>
+						<div class="item-date"><i class="fa fa-calendar" aria-hidden="true"></i> <%= i.dueDate.getDate() +"-"+ i.dueDate.getMonth() +"-"+ i.dueDate.getFullYear() %></div>
     				    </div>
-    					<div class="category-box">school</div>
+						<div class="category-box" <% let cat= i.category 
+						if(cat==="personal")
+						{%>
+							style="background-color:green"
+						<%}
+						else if(cat==="work"){%>
+                            style="background-color:darkblue"
+							<%}else if(cat==="college"){%>
+								style="background-color:violet"
+								<%}else if(cat==="cleaning"){%>
+									style="background-color:blue"
+									<%}else{%>
+										style="background-color:#4e5d5d"
+										<%}%>
+						><%= i.category %></div>
     				</label>
-    			</li>
-
-    			<li class="borders horizonatal-align">
-    				<input type="checkbox">
-    				<label class="horizonatal-align">
-    					<div class="item-desc">
-    					<div>annual report submission</div>
-    					<div class="item-date"><i class="fa fa-calendar" aria-hidden="true"></i> may 2, 2019</div>
-    				    </div>
-    					<div class="category-box">personal</div>
-    				</label>
-    			</li>
-
-    			<li class="borders horizonatal-align">
-    				<input type="checkbox">
-    				<label class="horizonatal-align">
-    					<div class="item-desc">
-    					<div>annual report submission</div>
-    					<div class="item-date"><i class="fa fa-calendar" aria-hidden="true"></i> may 2, 2019</div>
-    				    </div>
-    					<div class="category-box">cleaning</div>
-    				</label>
-    			</li>
+				</li>
+				<% } %>
     		</ul>
 
     	</div>

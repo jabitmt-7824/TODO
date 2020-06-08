@@ -106,7 +106,12 @@ button{
 }
 
 i{
-	padding-right: 7px; 
+	padding-right: 7px;
+}
+
+#toast{
+	position: absolute;
+	margin: 10px;
 }
 
 /* list elements */
@@ -140,9 +145,9 @@ input[type="checkbox"] + label{
 	width: 16%;
 	font-size: 0.8rem;
 	text-align: center;
-	background-color: violet;
 	margin: 0.7rem;
 	padding: 4px;
+	color:white;
 }
 
 @media all and (max-width: 991px){
