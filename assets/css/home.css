@@ -98,10 +98,18 @@ button{
 }
 
 #add-btn{
-	background-color: #2d2c2c;
+	background-color: #56ac24;
+}
+
+#add-btn:hover{
+	background-color: #225803;
 }
 
 #del-btn{
+	background-color: #fd0909;
+}
+
+#del-btn:hover{
 	background-color: #790404;
 }
 
