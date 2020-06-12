@@ -1,4 +1,6 @@
 const TodoList = require("../models/todoList");
+
+// view home page with added task details 
 module.exports.home = function(req,res)
 {
     TodoList.find({}, function(error,tasks){
@@ -12,10 +14,9 @@ module.exports.home = function(req,res)
     
 }
 
+// add task to TODO List 
 module.exports.addItem = function(req,res)
 {
-    console.log(req.body);
-    console.log(req.body.dueDate);
     TodoList.create({description: req.body.desc, category: req.body.category, dueDate: req.body.dueDate} , function(error,newtask){
         if(error)
         {
@@ -25,3 +26,16 @@ module.exports.addItem = function(req,res)
         return res.redirect("back");
     });
 }
+
+// delete tasks from TODO list 
+module.exports.delItem = function(req, res) {
+
+    TodoList.deleteMany({_id:{$in:req.body.id}}, function(err, todo) {
+        if (err) {
+          console.error(err);
+          return;
+        } else {
+          return res.redirect("/");
+        }
+      });
+    };

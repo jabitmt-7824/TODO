@@ -10,8 +10,9 @@
     	   <!--     Application Head        -->
     	<h1 class="borders">TODO App</h1>
 
-    	    <!--     input form section        -->
-    	<form method="POST">
+			<!--     input form of task addition section        -->
+			 
+    	<form action="/add-task" method="POST" id="addition-form">
     		<div id="desc" class="form-parts borders">
     		<label for="desc">description</label>
     		<input type="text" name="desc" id="desc" placeholder="What do you need to do?" required>
@@ -33,37 +34,38 @@
           		</div>	
           	</div>
           	<div class="form-parts borders">
-                 <div id="button-container" class="horizonatal-align">
-                 <button id="add-btn" formaction="/add-task"><i class="fa fa-plus" aria-hidden="true"></i>add task</button>  
-                 <button id="del-btn" formaction="/delete-task"><i class="fa fa-trash" aria-hidden="true"></i>delete task</button> 
-                 </div>
+				 <div class="horizonatal-align button-container"><button id="add-btn"><i class="fa fa-plus" aria-hidden="true"></i>add task</button></div>
 			</div>
-    	</form>
+			</form> 
+
+             <!--     view and delete task form section        -->
+			<form action="/delete-task" method="POST" id="view-and-deletion-form">
+            <div class="horizonatal-align button-container borders"><button id="del-btn"><i class="fa fa-trash" aria-hidden="true"></i>delete task</button></div> 
 
     	    <!--     list Section        -->
 
     	<div id="list-container">
 
     		<ul>
-				<% mlist = [ "JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC" ];
+				<% mlist = [ "JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC" ]; 
 				for( let i of taskList ) { %>
     			<li class="borders horizonatal-align">
-    				<input type="checkbox">
+					<input type="checkbox" name="id" value="<%= i._id %>" />
     				<label class="horizonatal-align">
     					<div class="item-desc">
     					<div><%= i.description %></div>
 						<div class="item-date"><i class="fa fa-calendar" aria-hidden="true"></i> <%= mlist[i.dueDate.getMonth()] +" "+ i.dueDate.getDay() +", "+i.dueDate.getFullYear()%></div>
     				    </div>
-						<div class="category-box" <% let cat= i.category 
-						if(cat==="personal")
+						<div class="category-box" <% let catgry= i.category 
+						if(catgry==="personal")
 						{%>
 							style="background-color:green"
 						<%}
-						else if(cat==="work"){%>
+						else if(catgry==="work"){%>
                             style="background-color:darkblue"
-							<%}else if(cat==="college"){%>
+							<%}else if(catgry==="college"){%>
 								style="background-color:violet"
-								<%}else if(cat==="cleaning"){%>
+								<%}else if(catgry==="cleaning"){%>
 									style="background-color:blue"
 									<%}else{%>
 										style="background-color:#4e5d5d"
@@ -74,7 +76,8 @@
 				<% } %>
     		</ul>
 
-    	</div>
+		</div>
+	   </form>
     </main>
 </body>
 </html>
