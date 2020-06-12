@@ -30,9 +30,9 @@ module.exports.addItem = function(req,res)
 // delete tasks from TODO list 
 module.exports.delItem = function(req, res) {
 
-    TodoList.deleteMany({_id:{$in:req.body.id}}, function(err, todo) {
+    TodoList.deleteMany({_id:{$in:req.body.id}}, function(error, todo) {
         if (err) {
-          console.error(err);
+          console.log("error in deleting tasks");
           return;
         } else {
           return res.redirect("/");
