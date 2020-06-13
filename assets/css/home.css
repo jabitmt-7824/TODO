@@ -118,6 +118,13 @@ i{
 	padding-right: 7px;
 }
 
+/* task counter */
+#task-count-container{
+	text-align: center;
+	text-transform: capitalize;
+	text-decoration: underline;
+}
+
 /* list elements */
 
 li{

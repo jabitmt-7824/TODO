@@ -41,7 +41,8 @@
              <!--     view and delete task form section        -->
 			<form action="/delete-task" method="POST" id="view-and-deletion-form">
             <div class="horizonatal-align button-container borders"><button id="del-btn"><i class="fa fa-trash" aria-hidden="true"></i>delete task</button></div> 
-
+			<!--      section for number of tasks in list      -->
+			<div id="task-count-container"><b>total task: <span id="task-count"><%= taskList.length %></span></b></div>
     	    <!--     list Section        -->
 
     	<div id="list-container">
